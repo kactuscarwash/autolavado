@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carwash Kactus - Servicio Profesional de Lavado Automotriz en Caraz</title>
+    <title>Carwash Kactus - Lavado y Cuidado Automotriz Profesional</title>
     
-    <!-- Favicon -->
+    <!-- Favicon personalizado con la letra K cálida/esmeralda -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b4f3b'/><text x='50%' y='72%' font-size='70' font-weight='bold' font-family='Arial, sans-serif' fill='%2384cc16' text-anchor='middle'>K</text></svg>">
 
     <style>
         :root {
             --primary: #0b4f3b;
-            --primary-dark: #073829;
+            --primary-dark: #06382a;
             --accent: #84cc16;
             --accent-warm: #eab308;
-            --bg-warm: #fffbeb;
-            --bg-card: #ffffff;
+            --accent-glow: #facc15;
+            --bg-gradient: linear-gradient(180deg, #fefce8 0%, #fef3c7 45%, #fffbeb 100%);
+            --card-bg: #ffffff;
             --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --border-warm: #fef08a;
+            --text-subtle: #57534e;
+            --border-warm: #fde047;
+            --shadow-card: 0 12px 28px rgba(11, 79, 59, 0.12);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(180deg, #fefce8 0%, #fef3c7 40%, #fffbeb 100%);
+            background: var(--bg-gradient);
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 15px;
+            padding: 20px;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -45,59 +47,74 @@
             z-index: 2;
         }
 
-        /* Banner Hero Principal con la imagen 2.png */
+        /* Banner Principal Superior */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(11, 79, 59, 0.25);
+            margin-bottom: 35px;
+            box-shadow: 0 16px 36px rgba(11, 79, 59, 0.3);
             border: 2px solid var(--accent);
             color: #ffffff;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-banner-img {
             width: 100%;
             max-width: 1050px;
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
             margin-bottom: 25px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-banner-img:hover {
+            transform: scale(1.01);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 900;
             color: #ffffff;
-            text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.4);
             letter-spacing: -0.5px;
             margin-bottom: 5px;
         }
 
         header p.subtitle {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #fef08a;
             margin-bottom: 25px;
             font-weight: 600;
         }
 
-        /* Botones de Acción Directa */
+        /* Secciones del Encabezado (Manteniendo tus Action Cards originales) */
         .actions-section {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 18px;
+            gap: 20px;
             width: 100%;
         }
 
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Botón Ubícanos */
         .location-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             background-color: var(--accent-warm);
             color: #1c1917;
@@ -106,20 +123,41 @@
             text-decoration: none;
             font-weight: 800;
             border: 3px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
-            transition: transform 0.2s ease;
-            animation: pulseBlink 1.8s infinite alternate;
+            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.45);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            animation: pulseBlink 1.5s infinite alternate;
+            cursor: pointer;
         }
 
         .location-btn img {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
         }
 
+        .location-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .location-text span.title {
+            font-size: 1.2rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .location-text span.subtitle {
+            font-size: 0.85rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        /* Botón Contáctanos */
         .contact-header-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             background-color: #25d366;
             color: #ffffff;
@@ -128,69 +166,63 @@
             text-decoration: none;
             font-weight: 800;
             border: 3px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
             transition: transform 0.2s ease, background-color 0.2s ease;
+            cursor: pointer;
         }
 
         .contact-header-btn svg {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             fill: #ffffff;
         }
 
-        .contact-header-btn:hover, .location-btn:hover {
+        .contact-header-btn:hover {
             transform: scale(1.05);
+            background-color: #20ba5a;
         }
 
         @keyframes pulseBlink {
             0% { transform: scale(1); background-color: #eab308; }
-            100% { transform: scale(1.04); background-color: #facc15; }
+            50% { background-color: #fde047; }
+            100% { transform: scale(1.05); background-color: #facc15; }
         }
 
-        /* Propuesta de Valor */
-        .info-banner {
-            background-color: var(--bg-card);
-            border: 2px solid var(--border-warm);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 30px rgba(180, 83, 9, 0.05);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .info-box {
-            background: #fffdf5;
-            border-left: 5px solid var(--primary);
-            padding: 22px;
-            border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .info-box h3 {
+        .location-btn:hover {
+            animation: none;
+            transform: scale(1.06);
+            background-color: #ffffff;
             color: var(--primary);
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .info-box p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
+        .direct-link {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #fef08a;
+            text-decoration: underline;
+            word-break: break-all;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .direct-link a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .direct-link a:hover {
+            color: var(--accent-glow);
         }
 
         /* Sección de Vehículos Atendidos */
         .vehicles-section {
             background-color: #ffffff;
-            border: 2px solid #fef08a;
+            border: 2px solid var(--border-warm);
             border-radius: 20px;
             padding: 30px 20px;
             margin-bottom: 35px;
             text-align: center;
+            box-shadow: var(--shadow-card);
         }
 
         .vehicles-title {
@@ -215,16 +247,111 @@
             font-weight: 700;
             color: var(--primary);
             font-size: 1.05rem;
+            transition: transform 0.2s ease;
         }
 
-        /* Sala de Espera VIP & Snacks */
+        .vehicle-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Sección de Información & Servicios Pro */
+        .info-banner {
+            background-color: #ffffff;
+            border: 2px solid var(--border-warm);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-box {
+            background: #fffdf5;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-4px);
+        }
+
+        .info-box h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box p {
+            font-size: 0.95rem;
+            color: var(--text-subtle);
+            line-height: 1.5;
+        }
+
+        /* Sección Especial: Publicidades Oficiales (Nuevas imágenes de WhatsApp) */
+        .campaign-section {
+            margin-bottom: 40px;
+        }
+
+        .campaign-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .campaign-subtitle {
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--text-subtle);
+            margin-bottom: 25px;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .campaign-card {
+            background: #ffffff;
+            border: 2px solid var(--border-warm);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(11, 79, 59, 0.2);
+            border-color: var(--accent);
+        }
+
+        .campaign-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sección Especial: Bebidas y Refrescos en la Sala de Espera */
         .refreshment-section {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #ffffff;
-            border-radius: 22px;
-            padding: 35px 25px;
+            border-radius: 20px;
+            padding: 30px 25px;
             margin-bottom: 40px;
-            box-shadow: 0 12px 30px rgba(11, 79, 59, 0.2);
+            box-shadow: 0 12px 30px rgba(11, 79, 59, 0.25);
             border: 2px solid var(--accent);
         }
 
@@ -233,7 +360,7 @@
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
@@ -252,16 +379,19 @@
 
         .drink-card {
             background: #ffffff;
+            border: 2px solid #fde047;
             border-radius: 16px;
             overflow: hidden;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             position: relative;
         }
 
         .drink-card:hover {
             transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .drink-card img {
@@ -269,6 +399,7 @@
             height: 220px;
             object-fit: cover;
             display: block;
+            background-color: #ffffff;
         }
 
         .drink-card-body {
@@ -280,6 +411,7 @@
             font-size: 1.15rem;
             color: var(--primary);
             font-weight: 800;
+            margin-bottom: 5px;
         }
 
         .drink-badge {
@@ -293,9 +425,10 @@
             padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Galería de Trabajos */
+        /* Galería Principal sin marcos blancos */
         .gallery-title {
             text-align: center;
             margin: 35px 0 25px;
@@ -303,11 +436,12 @@
             color: var(--primary);
             font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
@@ -316,16 +450,17 @@
             border: 2px solid var(--border-warm);
             border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             aspect-ratio: 4 / 5;
             width: 100%;
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(11, 79, 59, 0.2);
         }
 
         .card img {
@@ -335,7 +470,7 @@
             display: block;
         }
 
-        /* Modal HD */
+        /* Modal / Visualizador HD */
         .modal {
             display: none;
             position: fixed;
@@ -344,7 +479,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(28, 25, 23, 0.92);
+            background-color: rgba(28, 25, 23, 0.93);
             backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
@@ -354,7 +489,8 @@
         .modal-content {
             max-width: 92%;
             max-height: 88vh;
-            border-radius: 12px;
+            border-radius: 14px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
             object-fit: contain;
             border: 2px solid var(--accent);
         }
@@ -374,6 +510,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background: #ef4444;
         }
 
         /* Call To Action Inferior */
@@ -384,7 +525,7 @@
             padding: 40px 20px;
             border-radius: 22px;
             margin-top: 45px;
-            box-shadow: 0 10px 30px rgba(11, 79, 59, 0.3);
+            box-shadow: 0 12px 30px rgba(11, 79, 59, 0.3);
             border: 2px solid var(--accent);
         }
 
@@ -392,12 +533,12 @@
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 10px;
-            color: #ffffff;
         }
 
         .cta-bottom p {
             font-size: 1.15rem;
             color: #fef08a;
+            opacity: 0.95;
             margin-bottom: 22px;
         }
 
@@ -411,7 +552,7 @@
             font-weight: 800;
             font-size: 1.15rem;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .cta-btn:hover {
@@ -419,7 +560,7 @@
             background-color: #20ba5a;
         }
 
-        /* WhatsApp Flotante */
+        /* Botón Flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -436,12 +577,13 @@
             font-size: 1.05rem;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
             z-index: 999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid #ffffff;
-            transition: transform 0.3s ease;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.08);
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.7);
             background-color: #20ba5a;
         }
 
@@ -455,7 +597,7 @@
             text-align: center;
             margin-top: 50px;
             padding: 25px;
-            color: var(--text-muted);
+            color: var(--text-subtle);
             border-top: 2px solid var(--border-warm);
             font-size: 0.95rem;
             font-weight: 600;
@@ -476,31 +618,34 @@
         .bubble {
             position: absolute;
             bottom: -80px;
-            background: radial-gradient(circle at 35% 35%, rgba(254, 240, 138, 0.8), rgba(132, 204, 22, 0.3));
+            background: radial-gradient(circle at 35% 35%, rgba(254, 240, 138, 0.9), rgba(132, 204, 22, 0.4));
             border-radius: 50%;
-            border: 1.5px solid rgba(234, 179, 8, 0.6);
+            border: 2px solid rgba(234, 179, 8, 0.7);
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.9);
             animation: floatUpRandom linear infinite;
         }
 
-        .bubble:nth-child(1) { left: 4%; width: 35px; height: 35px; animation-duration: 8s; }
-        .bubble:nth-child(2) { left: 16%; width: 55px; height: 55px; animation-duration: 12s; animation-delay: 1.5s; }
-        .bubble:nth-child(3) { left: 28%; width: 28px; height: 28px; animation-duration: 9s; animation-delay: 3s; }
-        .bubble:nth-child(4) { left: 42%; width: 60px; height: 60px; animation-duration: 14s; }
-        .bubble:nth-child(5) { left: 56%; width: 40px; height: 40px; animation-duration: 10s; animation-delay: 2s; }
-        .bubble:nth-child(6) { left: 70%; width: 50px; height: 50px; animation-duration: 11s; animation-delay: 4s; }
-        .bubble:nth-child(7) { left: 84%; width: 32px; height: 32px; animation-duration: 8.5s; }
+        .bubble:nth-child(1) { left: 3%; width: 35px; height: 35px; animation-duration: 7s; animation-delay: 0s; }
+        .bubble:nth-child(2) { left: 14%; width: 55px; height: 55px; animation-duration: 11s; animation-delay: 1.5s; }
+        .bubble:nth-child(3) { left: 26%; width: 28px; height: 28px; animation-duration: 8s; animation-delay: 3s; }
+        .bubble:nth-child(4) { left: 38%; width: 65px; height: 65px; animation-duration: 13s; animation-delay: 0.5s; }
+        .bubble:nth-child(5) { left: 50%; width: 40px; height: 40px; animation-duration: 9s; animation-delay: 2s; }
+        .bubble:nth-child(6) { left: 63%; width: 50px; height: 50px; animation-duration: 10s; animation-delay: 4s; }
+        .bubble:nth-child(7) { left: 75%; width: 30px; height: 30px; animation-duration: 7.5s; animation-delay: 1s; }
+        .bubble:nth-child(8) { left: 86%; width: 60px; height: 60px; animation-duration: 12s; animation-delay: 2.5s; }
 
         @keyframes floatUpRandom {
-            0% { transform: translateY(0) scale(0.9); opacity: 0.8; }
-            50% { transform: translateY(-50vh) scale(1.1); }
-            100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+            0% { transform: translateY(0) scale(0.9) translateX(0); opacity: 0.95; }
+            33% { transform: translateY(-35vh) scale(1.1) translateX(30px); }
+            66% { transform: translateY(-70vh) scale(1) translateX(-25px); }
+            100% { transform: translateY(-110vh) scale(1.25) translateX(20px); opacity: 0.1; }
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
+            header h1 { font-size: 2.3rem; }
             .actions-section { flex-direction: column; }
-            .card { aspect-ratio: auto; height: 360px; }
             .whatsapp-float { padding: 10px 18px; font-size: 0.95rem; bottom: 15px; right: 15px; }
+            .card { aspect-ratio: auto; height: 380px; }
         }
     </style>
 </head>
@@ -515,30 +660,44 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
+        <div class="bubble"></div>
     </div>
 
     <div class="container">
         <header>
-            <!-- Banner promocional usando 2.png -->
+            <!-- Banner promocional integrado (2.png) -->
             <img src="2.png" alt="Carwash Kactus Banner Promocional" class="hero-banner-img">
 
             <h1>Carwash Kactus</h1>
             <p class="subtitle">Servicio Profesional de Lavado y Cuidado Automotriz en Caraz</p>
 
             <div class="actions-section">
-                <!-- Ubícanos -->
-                <a href="https://maps.app.goo.gl/qSCLzeF1Up7ykjqo9" target="_blank" class="location-btn" title="Abrir en Google Maps">
-                    <img src="gps.png" alt="GPS">
-                    <span>¡Ubícanos en Google Maps!</span>
-                </a>
+                <!-- Botón Ubícanos -->
+                <div class="action-card">
+                    <a href="https://maps.app.goo.gl/qSCLzeF1Up7ykjqo9" target="_blank" class="location-btn" title="Ver ubicación en Google Maps">
+                        <img src="gps.png" alt="Icono GPS">
+                        <div class="location-text">
+                            <span class="title">¡Ubícanos aquí!</span>
+                            <span class="subtitle">Abrir en Google Maps</span>
+                        </div>
+                    </a>
+                    <p class="direct-link">
+                        <a href="https://maps.app.goo.gl/qSCLzeF1Up7ykjqo9" target="_blank">https://maps.app.goo.gl/qSCLzeF1Up7ykjqo9</a>
+                    </p>
+                </div>
 
-                <!-- Contáctanos por WhatsApp (Número Actualizado) -->
-                <a href="https://wa.me/51916451030?text=Hola%20Carwash%20Kactus,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="contact-header-btn" title="Escríbenos por WhatsApp">
-                    <svg viewBox="0 0 32 32">
-                        <path d="M16 2a13 13 0 0 0-11.2 19.6L3 29l7.6-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4A11 11 0 1 1 16 26zm6-8.2c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6 0a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.4.3-.6a.5.5 0 0 0 0-.5c-.1-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.3 3.4 14.5 14.5 0 0 0 5.6 5 18.7 18.7 0 0 0 1.9.7 4.5 4.5 0 0 0 2.1.1 3.4 3.4 0 0 0 2.2-1.5 2.8 2.8 0 0 0 .2-1.6c-.1-.3-.4-.4-.7-.6z"/>
-                    </svg>
-                    <span>WhatsApp: 916 451 030</span>
-                </a>
+                <!-- Botón Contáctanos (Número Actualizado: 916 451 030) -->
+                <div class="action-card">
+                    <a href="https://wa.me/51916451030?text=Hola%20Carwash%20Kactus,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="contact-header-btn" title="Contáctanos por WhatsApp">
+                        <svg viewBox="0 0 32 32">
+                            <path d="M16 2a13 13 0 0 0-11.2 19.6L3 29l7.6-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4A11 11 0 1 1 16 26zm6-8.2c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6 0a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.4.3-.6a.5.5 0 0 0 0-.5c-.1-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.3 3.4 14.5 14.5 0 0 0 5.6 5 18.7 18.7 0 0 0 1.9.7 4.5 4.5 0 0 0 2.1.1 3.4 3.4 0 0 0 2.2-1.5 2.8 2.8 0 0 0 .2-1.6c-.1-.3-.4-.4-.7-.6z"/>
+                        </svg>
+                        <div class="location-text">
+                            <span class="title">Contáctanos</span>
+                            <span class="subtitle">WhatsApp: 916 451 030</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -554,8 +713,125 @@
             </div>
         </div>
 
-        <!-- Propuesta de Valor -->
+        <!-- Sección de Propuesta de Valor -->
         <div class="info-banner">
             <div class="info-box">
                 <h3>✨ Cuidado al Detalle</h3>
-                <p>Aspirado profundo, lavado exterior con champú con cera, siliconado protector y acabados impecables para que tu vehículo luzca como recién salido de tienda.</p
+                <p>Lavamos su vehículo con el máximo detalle posible: aspirado profundo, siliconado protector y acabados impecables para que luzca como recién salido de tienda.</p>
+            </div>
+            <div class="info-box">
+                <h3>🛋️ Sala de Espera Comfort</h3>
+                <p>Relájese en nuestros cómodos sofás mientras trabajamos. Disfrute de nuestra variedad en bebidas heladas, cervezas, galletas y piqueos.</p>
+            </div>
+            <div class="info-box">
+                <h3>🏢 Atención a Empresas</h3>
+                <p>Atención corporativa a flotas de empresas con precios y descuentos especiales por volumen. Todos nuestros precios ya incluyen IGV.</p>
+            </div>
+        </div>
+
+        <!-- Sección Especial: Publicidades Oficiales (Nuevas Imágenes de WhatsApp) -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🌟 Promociones & Experiencia Kactus 🌟</h2>
+            <p class="campaign-subtitle">Conoce nuestras instalaciones, sala de espera y la calidad de nuestro servicio</p>
+
+            <div class="campaign-grid">
+                <div class="campaign-card" onclick="openModal('WhatsApp Image 2026-11-07 at 10.52.13 AM.jpeg')">
+                    <img src="WhatsApp Image 2026-11-07 at 10.52.13 AM.jpeg" alt="Sala de Espera Familiar Kactus">
+                </div>
+                <div class="campaign-card" onclick="openModal('WhatsApp Image 2026-11-07 at 10.52.13 AM (3).jpeg')">
+                    <img src="WhatsApp Image 2026-11-07 at 10.52.13 AM (3).jpeg" alt="Venta de Bebidas y Snacks">
+                </div>
+                <div class="campaign-card" onclick="openModal('WhatsApp Image 2026-11-07 at 10.52.13 AM (1).jpeg')">
+                    <img src="WhatsApp Image 2026-11-07 at 10.52.13 AM (1).jpeg" alt="Servicio de Lavado Profesional">
+                </div>
+                <div class="campaign-card" onclick="openModal('WhatsApp Image 2026-11-07 at 10.52.13 AM (2).jpeg')">
+                    <img src="WhatsApp Image 2026-11-07 at 10.52.13 AM (2).jpeg" alt="Experiencia Carwash Kactus">
+                </div>
+            </div>
+        </div>
+
+        <!-- Muestra de Productos y Sala de Espera VIP -->
+        <div class="refreshment-section">
+            <h2 class="refreshment-title">🥤 Bebidas Heladas & Snacks en Tu Espera 🍺</h2>
+            <p class="refreshment-subtitle">Disfruta de la mejor comodidad en nuestra sala de espera acondicionada con sofás mientras cuidamos tu vehículo</p>
+            
+            <div class="drinks-grid">
+                <div class="drink-card" onclick="openModal('bebidas.webp')">
+                    <span class="drink-badge">Bien Heladas</span>
+                    <img src="bebidas.webp" alt="Gaseosas y Bebidas Heladas">
+                    <div class="drink-card-body">
+                        <h4>Gaseosas & Refrescos</h4>
+                    </div>
+                </div>
+
+                <div class="drink-card" onclick="openModal('cerveza.webp')">
+                    <span class="drink-badge">VIP</span>
+                    <img src="cerveza.webp" alt="Cervezas Heladas">
+                    <div class="drink-card-body">
+                        <h4>Cervezas Personales</h4>
+                    </div>
+                </div>
+
+                <div class="drink-card" onclick="openModal('cerveza2.webp')">
+                    <span class="drink-badge">Refrescante</span>
+                    <img src="cerveza2.webp" alt="Variedad de Cervezas y Bebidas">
+                    <div class="drink-card-body">
+                        <h4>Variedad en Licores & Snacks</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="gallery-title">Nuestros Servicios y Trabajos</h2>
+
+        <div class="gallery">
+            <div class="card" onclick="openModal('1.png')"><img src="1.png" alt="Servicio 1"></div>
+            <div class="card" onclick="openModal('2.png')"><img src="2.png" alt="Servicio 2"></div>
+            <div class="card" onclick="openModal('3.png')"><img src="3.png" alt="Servicio 3"></div>
+            <div class="card" onclick="openModal('4.png')"><img src="4.png" alt="Servicio 4"></div>
+            <div class="card" onclick="openModal('5.png')"><img src="5.png" alt="Servicio 5"></div>
+            <div class="card" onclick="openModal('6.png')"><img src="6.png" alt="Servicio 6"></div>
+        </div>
+
+        <!-- Banner Cierre Comercial -->
+        <div class="cta-bottom">
+            <h2>¡No esperes más y visítanos hoy mismo!</h2>
+            <p>Tu vehículo te lo agradecerá. Garantía de brillo, frescura y limpieza total en Caraz.</p>
+            <a href="https://wa.me/51916451030?text=Hola%20Carwash%20Kactus,%20quiero%20llevar%20mi%20veh%C3%ADculo%20hoy" target="_blank" class="cta-btn">Escríbenos por WhatsApp</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Carwash Kactus. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Modal para abrir la imagen completa HD -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgFull">
+    </div>
+
+    <!-- Botón Flotante de WhatsApp (Actualizado: 916 451 030) -->
+    <a href="https://wa.me/51916451030?text=Hola%20Carwash%20Kactus,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 2a13 13 0 0 0-11.2 19.6L3 29l7.6-2A13 13 0 1 0 16 2zm0 24a11 11 0 0 1-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4A11 11 0 1 1 16 26zm6-8.2c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6 0a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.4.3-.6a.5.5 0 0 0 0-.5c-.1-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.3 3.4 14.5 14.5 0 0 0 5.6 5 18.7 18.7 0 0 0 1.9.7 4.5 4.5 0 0 0 2.1.1 3.4 3.4 0 0 0 2.2-1.5 2.8 2.8 0 0 0 .2-1.6c-.1-.3-.4-.4-.7-.6z"/>
+        </svg>
+        <span>Contáctanos</span>
+    </a>
+
+    <script>
+        function openModal(imageSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("imgFull");
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
